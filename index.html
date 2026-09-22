@@ -18,13 +18,27 @@
             background: #f4f4f4;
             color: #111;
             min-height: 100vh;
+
+            /* Keeps footer at the bottom */
+            display: flex;
+            flex-direction: column;
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================= */
+
         header {
-            background: linear-gradient(135deg, #111 0%, #1c1c1c 55%, #292929 100%);
+            background: linear-gradient(
+                135deg,
+                #111 0%,
+                #1c1c1c 55%,
+                #292929 100%
+            );
+
             color: white;
             padding: 70px 0;
+
             position: relative;
             overflow: hidden;
         }
@@ -32,10 +46,14 @@
         header::before {
             content: "";
             position: absolute;
+
             width: 300px;
             height: 300px;
+
             background: rgba(255, 255, 255, 0.04);
+
             border-radius: 50%;
+
             top: -150px;
             right: 8%;
         }
@@ -43,19 +61,27 @@
         header::after {
             content: "";
             position: absolute;
+
             width: 180px;
             height: 180px;
+
             background: rgba(255, 255, 255, 0.03);
+
             border-radius: 50%;
+
             bottom: -100px;
             left: 12%;
         }
 
-        /* SAME WIDTH AND SIDE PADDING AS MAIN CONTENT */
+        /* =========================
+           HEADER + MAIN ALIGNMENT
+        ========================= */
+
         .header-content,
         .container {
             max-width: 1200px;
             margin: auto;
+
             padding-left: 30px;
             padding-right: 30px;
         }
@@ -65,36 +91,66 @@
             z-index: 2;
         }
 
+        /* =========================
+           COURSE BADGE
+        ========================= */
+
         .course-badge {
             display: inline-block;
+
             padding: 8px 14px;
+
             border: 1px solid #555;
+
             color: #ccc;
+
             font-size: 11px;
             font-weight: bold;
+
             letter-spacing: 2px;
+
             margin-bottom: 20px;
+
             text-transform: uppercase;
         }
 
+        /* =========================
+           HEADER TEXT
+        ========================= */
+
         header h1 {
             font-size: clamp(42px, 7vw, 72px);
+
             line-height: 1;
+
             letter-spacing: -2px;
+
             margin-bottom: 18px;
         }
 
         header p {
             color: #aaa;
+
             font-size: 16px;
+
             letter-spacing: 0.5px;
         }
 
-        /* MAIN CONTAINER */
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
         .container {
             padding-top: 70px;
             padding-bottom: 70px;
+
+            /* Pushes footer to bottom */
+            flex: 1;
         }
+
+        /* =========================
+           TITLE
+        ========================= */
 
         .title {
             margin-bottom: 35px;
@@ -102,39 +158,57 @@
 
         .title h2 {
             font-size: 32px;
+
             margin-bottom: 10px;
+
             letter-spacing: -0.5px;
         }
 
         .title p {
             color: #777;
+
             font-size: 14px;
         }
 
-        /* TEAM GRID */
+        /* =========================
+           TEAM GRID
+        ========================= */
+
         .team-grid {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 22px;
         }
 
-        /* TEAM CARD */
+        /* =========================
+           TEAM CARD
+        ========================= */
+
         .team-card {
             display: flex;
+
             flex-direction: column;
+
             justify-content: space-between;
 
             text-decoration: none;
+
             background: #222;
+
             color: white;
 
             padding: 32px;
+
             min-height: 280px;
 
             border: 1px solid #333;
+
             border-radius: 4px;
 
             position: relative;
+
             overflow: hidden;
 
             transition:
@@ -146,20 +220,29 @@
 
         .team-card::before {
             content: "";
+
             position: absolute;
+
             width: 120px;
             height: 120px;
+
             border-radius: 50%;
+
             background: rgba(255, 255, 255, 0.04);
+
             top: -60px;
             right: -40px;
+
             transition: transform 0.4s ease;
         }
 
         .team-card:hover {
             background: #111;
+
             border-color: #666;
+
             transform: translateY(-8px);
+
             box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
         }
 
@@ -167,46 +250,71 @@
             transform: scale(1.8);
         }
 
+        /* =========================
+           CARD CONTENT
+        ========================= */
+
         .card-content {
             position: relative;
+
             z-index: 2;
         }
 
         .team-number {
             color: #888;
+
             font-size: 11px;
+
             font-weight: bold;
+
             letter-spacing: 2px;
+
             text-transform: uppercase;
+
             margin-bottom: 35px;
         }
 
         .team-card h3 {
             font-size: 22px;
+
             line-height: 1.3;
+
             margin-bottom: 14px;
         }
 
         .team-card p {
             color: #aaa;
+
             font-size: 13px;
+
             line-height: 1.7;
+
             max-width: 280px;
         }
 
+        /* =========================
+           VIEW PROFILE
+        ========================= */
+
         .team-link {
             position: relative;
+
             z-index: 2;
 
             display: inline-flex;
+
             align-items: center;
+
             gap: 8px;
 
             margin-top: 30px;
 
             color: white;
+
             font-size: 11px;
+
             font-weight: bold;
+
             letter-spacing: 1.5px;
         }
 
@@ -218,22 +326,37 @@
             transform: translateX(6px);
         }
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
             background: #111;
+
             color: #777;
+
             text-align: center;
-            padding: 40px 20px;
+
+            /* Back to original thickness */
+            padding: 20px;
+
             font-size: 12px;
+
             border-top: 1px solid #222;
+
+            flex-shrink: 0;
         }
 
         footer strong {
             color: #aaa;
         }
 
-        /* TABLET */
+        /* =========================
+           TABLET
+        ========================= */
+
         @media (max-width: 900px) {
+
             header {
                 padding: 60px 0;
             }
@@ -243,8 +366,12 @@
             }
         }
 
-        /* MOBILE */
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 600px) {
+
             header {
                 padding: 50px 0;
             }
@@ -280,44 +407,66 @@
                 min-height: 250px;
             }
         }
+
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
+    <!-- =========================
+         HEADER
+    ========================= -->
+
     <header>
+
         <div class="header-content">
 
             <div class="course-badge">
                 ITE 386
             </div>
 
-            <h1>SUMMER BOYS</h1>
+            <h1>
+                SUMMER BOYS
+            </h1>
 
-            <p>ITE 386 Cloud Programming</p>
+            <p>
+                ITE 386 Cloud Programming
+            </p>
 
         </div>
+
     </header>
 
 
-    <!-- MAIN CONTENT -->
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
     <main class="container">
 
         <div class="title">
-            <h2>Meet the Team</h2>
+
+            <h2>
+                Meet the Team
+            </h2>
 
             <p>
                 Select a member to view their profile,
                 projects, documentation, and activities.
             </p>
+
         </div>
 
 
-        <!-- TEAM MEMBERS -->
+        <!-- =========================
+             TEAM MEMBERS
+        ========================= -->
+
         <div class="team-grid">
 
+
             <!-- MEMBER 01 -->
+
             <a href="Rivera.html" class="team-card">
 
                 <div class="card-content">
@@ -338,14 +487,20 @@
                 </div>
 
                 <span class="team-link">
+
                     VIEW PROFILE
-                    <span class="arrow">→</span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
                 </span>
 
             </a>
 
 
             <!-- MEMBER 02 -->
+
             <a href="mandapat.html" class="team-card">
 
                 <div class="card-content">
@@ -366,14 +521,20 @@
                 </div>
 
                 <span class="team-link">
+
                     VIEW PROFILE
-                    <span class="arrow">→</span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
                 </span>
 
             </a>
 
 
             <!-- MEMBER 03 -->
+
             <a href="Lazaro.html" class="team-card">
 
                 <div class="card-content">
@@ -394,20 +555,33 @@
                 </div>
 
                 <span class="team-link">
+
                     VIEW PROFILE
-                    <span class="arrow">→</span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
                 </span>
 
             </a>
+
 
         </div>
 
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
     <footer>
-        © 2026 <strong>SUMMER BOYS</strong> · ITE 386 Cloud Programming
+
+        © 2026
+        <strong>SUMMER BOYS</strong>
+        · ITE 386 Cloud Programming
+
     </footer>
 
 </body>
